@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshBC Market - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">FreshBC Market</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h1 class="text-center mb-4">Welcome to FreshBC Market</h1>
+        <p class="text-center">Connecting BC farmers with local buyers for fresh, affordable produce. Support local agriculture and reduce imports!</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="map"></div>
+                <div id="geolocationError" class="alert alert-danger mt-3" style="display: none;">Unable to access your location. Showing Fraser Valley farms.</div>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-info">BC Market Trends: Organic sales hit $508M in 2020, up 15.6%. Farmers' markets generate $233M economic impact.</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search BC products (e.g., Organic Tomatoes)" id="searchInput">
+            <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+        <select class="form-select mb-3 w-25">
+            <option>Filter: Price</option>
+            <option>Distance</option>
+            <option>Organic (Buy BC Certified)</option>
+        </select>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FreshBC Market. Supporting BC Agriculture - $5.7B Exports in 2023.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=maps,marker&callback=initMap" async defer></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        function initMap() {
+            const defaultCenter = { lat: 49.001, lng: -122.351 }; // Fraser Valley, BC
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: defaultCenter,
+                mapTypeId: 'roadmap'
+            });
+
+            const farms = [
+                { lat: 49.013, lng: -122.345, name: "Fraser Valley Organic Farm", desc: "Organic tomatoes and kale", products: ["tomatoes", "kale"] },
+                { lat: 49.005, lng: -122.360, name: "Sunny Hills Farm", desc: "Seasonal berries", products: ["berries"] },
+                { lat: 48.995, lng: -122.350, name: "Green Acres Farm", desc: "Greenhouse veggies", products: ["lettuce", "peppers"] }
+            ];
+
+            function addFarmMarkers(center) {
+                farms.forEach(farm => {
+                    // Calculate distance (in km) for sorting
+                    const distance = google.maps.geometry.spherical.computeDistanceBetween(
+                        new google

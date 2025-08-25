@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f1e9; /* Off-white for earthy feel */
+    font-family: 'Roboto', sans-serif;
+}
+.navbar {
+    background-color: #4CAF50 !important; /* BC green theme */
+}
+.card {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+.btn-success {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+.btn-success:hover {
+    background-color: #45a049;
+}
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+#mapPlaceholder {
+    height: 150px;
+    border: 1px solid #ccc;
+}
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}

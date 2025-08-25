@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshBC Market - Farmer Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">FreshBC Market</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Farmer Dashboard</h2>
+        <p><strong>Sales this week:</strong> $500 (Based on BC market data)</p>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Inventory Management</h5>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">Tomatoes: 50lbs <button class="btn btn-sm btn-outline-secondary">Edit</button></li>
+                    <li class="list-group-item d-flex justify-content-between">Kale: 100lbs <button class="btn btn-sm btn-outline-secondary">Edit</button></li>
+                    <li class="list-group-item d-flex justify-content-between">Berries: 200lbs <button class="btn btn-sm btn-outline-secondary">Edit</button></li>
+                </ul>
+                <button class="btn btn-success mt-3">Add New Product</button>
+            </div>
+        </div>
+        <div class="alert alert-success">Recommendation: Grow more kale—demand up 15% in BC organics.</div>
+        <canvas id="salesChart" height="100"></canvas>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FreshBC Market. Supporting BC Agriculture - $5.7B Exports in 2023.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
